@@ -3,8 +3,11 @@ import SearchBox from '../DesktopHeader/SearchBox/SearchBox'
 export default function UpperHeader(){
     return(
         <>
-        <Logo/>
-        <SearchBox/>
+        <div className='d-flex justify-content-between'>
+            <Logo/>
+            <SearchBox/>
+        </div>
+
         </>
     )
 }
