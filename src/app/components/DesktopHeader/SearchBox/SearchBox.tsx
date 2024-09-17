@@ -1,5 +1,5 @@
 export default function SearchBox(){
     return(
-        <div>Search</div>
+        <div>Search box usdf</div>
     )
 }
