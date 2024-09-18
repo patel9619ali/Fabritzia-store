@@ -1,13 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
+import WishList from "../AddToCart/WishList";
+import CartSVG from "../AddToCart/CartSVG";
+import LoginButton from "../AddToCart/LoginButton";
 
 type Props = {
     className: string;
 };
 export default function AddToCart({className}:Props){
     return(
-        <Link className={className} href="#">
-            <Image className="img-fluid" src="https://www.westside.com/cdn/shop/files/w-logo.png?v=1687335574&width=210" alt="HeaderLogo" width={100} height={100}/>
-        </Link>
+        <>
+         <div className={className}>
+            <div className="desktop-localization-wrapper text-center">
+              <WishList className="me-3"/>
+              <CartSVG className="me-3"/>
+              <LoginButton/>
+            </div>  
+         </div>
+        </>
     )
 }
