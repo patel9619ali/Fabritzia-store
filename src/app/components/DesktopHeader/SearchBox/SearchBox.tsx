@@ -6,13 +6,18 @@ type Props = {
     className: string;
 };
 const StyledInput = styled(Input)`
-  border: 1px solid #121212;
+  border: .1rem solid #DBDBDB;
+  width: 60%;
   border-radius: 20px;
+  background-color: #FAFAFA;
   && input {
     border: transparent;
     width: 100%;
     &:focus-visible{
    outline: none!important;
+    }
+   &::placeholder{
+    font-size: 16px;
     }
   }
     [data-slot="input-wrapper"] {
@@ -23,9 +28,16 @@ const StyledInput = styled(Input)`
     align-items: center;
   }
 `;
+const StyledSearchWrapper = styled.div`
+    justify-content: center;
+    display: flex;
+  }
+`;
 
 export default function SearchBox({className}:Props){
     return(
-        <StyledInput className={className} placeholder="Type to search..." startContent={<SearchIcon className="me-3" size={14} />} type="search" />
+      <StyledSearchWrapper className={className}>
+        <StyledInput className=" py-2" placeholder="Type to search..." startContent={<SearchIcon className="me-3" size={14} />} type="search" />
+      </StyledSearchWrapper>
     )
 }
