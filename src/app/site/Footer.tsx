@@ -1,7 +1,14 @@
-export default function Header() {
+"use client"
+import styled from "styled-components";
+
+
+const StyledFooter = styled.div`
+height: 2000px;
+`;
+export default function Footer() {
     return (
       <>
-        <div>Footer</div>
+        <StyledFooter>Footer</StyledFooter>
       </>
       
     );

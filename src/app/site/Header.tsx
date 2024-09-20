@@ -1,14 +1,19 @@
 'use client'
 import UpperHeader from '../components/DesktopHeader/UpperHeader'
 import LowerHeader from '../components/DesktopHeader/LowerHeader'
+import styled from 'styled-components';
 import React, { useState, useEffect } from 'react';
+const StyledHeader = styled.div`
+border-bottom: .1rem solid rgba(18, 18, 18,.08)
+
+`;
 const Header = () => {
    return (
       <header className='py-3'>
-        <div className='container-fluid'>
+        <StyledHeader className='container-fluid'>
             <UpperHeader />
             <LowerHeader />
-        </div>
+        </StyledHeader>
       </header>
    )
 }
