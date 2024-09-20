@@ -1,9 +1,14 @@
+import styled from "styled-components";
 import WomenWear from "./MegaMenu/WomenWear/WomenWear";
 import MenWear from "./MegaMenu/MensWear/MensWear";
 import KidsWear from "./MegaMenu/KidsWear/KidsWear";
+
+const StyledNav = styled.nav`
+background-color: #fff!important;
+`
 export default function LowerHeader(){
     return(
-        <nav className="navbar navbar-expand-md bg-light bsb-navbar bsb-navbar-hover bsb-navbar-caret">
+        <StyledNav className="navbar navbar-expand-md bg-light bsb-navbar bsb-navbar-hover bsb-navbar-caret">
             <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div className="offcanvas-body">
                     <ul className="navbar-nav justify-content-center flex-grow-1">
@@ -13,6 +18,6 @@ export default function LowerHeader(){
                     </ul>
                 </div>
             </div>     
-        </nav>
+        </StyledNav>
     )
 }
