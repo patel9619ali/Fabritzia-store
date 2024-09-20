@@ -2,6 +2,7 @@ import styled from "styled-components";
 import WomenWear from "./MegaMenu/WomenWear/WomenWear";
 import MenWear from "./MegaMenu/MensWear/MensWear";
 import KidsWear from "./MegaMenu/KidsWear/KidsWear";
+import AboutUs from "./MegaMenu/AboutUs";
 
 const StyledNav = styled.nav`
 background-color: #fff!important;
@@ -15,6 +16,7 @@ export default function LowerHeader(){
                         <WomenWear/>
                         <MenWear/>
                         <KidsWear/>
+                        <AboutUs className="nav-link"/>
                     </ul>
                 </div>
             </div>     

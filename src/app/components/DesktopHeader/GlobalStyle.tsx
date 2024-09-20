@@ -20,6 +20,8 @@ export const GlobalStyle = createGlobalStyle`
     opacity: 1;
     animation: bsb-zoomIn 0.5s ease-in-out;
     transition: all 0.3s ease-in-out;
+    border: .12rem solid rgba(18, 18, 18, .3) !important;
+    width: 80%!important;
   }
  
   .drop_down_anchor::after{
