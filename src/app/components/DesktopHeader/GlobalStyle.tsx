@@ -22,6 +22,9 @@ export const GlobalStyle = createGlobalStyle`
     transition: all 0.3s ease-in-out;
     border: .12rem solid rgba(18, 18, 18, .3) !important;
     width: 80%!important;
+    position: absolute!important;
+    right:-20px!important;
+    top: 30px!important;
   }
  
   .drop_down_anchor::after{
@@ -39,13 +42,5 @@ export const GlobalStyle = createGlobalStyle`
   }
   .bsb-navbar.navbar-expand-md.bsb-navbar-hover .dropdown:hover > .drop_down_anchor::after{
    background: url('Assets/chevron-up-solid.svg') no-repeat center!important;
-    }
-
-    @media (max-width: 767px){
-      .bsb-navbar.navbar-expand-md.bsb-navbar-hover .dropdown:hover > .dropdown-menu.bsb-zoomIn,
-  .bsb-navbar.navbar-expand-md.bsb-navbar-hover .dropdown:hover > .dropdown-menu.show.bsb-zoomIn {
-position: absolute!important;
-right:0!important;
-  }
     }
 `;
