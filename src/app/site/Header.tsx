@@ -7,6 +7,7 @@ const StyledHeader = styled.div`
 border-bottom: .1rem solid rgba(18, 18, 18,.08);
 @media (max-width: 767px){
    border-bottom: none!important;
+   padding: 0!important;
 }
 `;
 const Header = () => {

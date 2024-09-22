@@ -11,7 +11,7 @@ export default function AddToCart({className}:Props){
     return(
         <>
          <div className={className}>
-            <div className="desktop-localization-wrapper text-center">
+            <div className="desktop-localization-wrapper text-center justify-content-center align-items-center d-flex">
               <WishList className="me-3"/>
               <CartSVG className="me-3"/>
               <LoginButton/>

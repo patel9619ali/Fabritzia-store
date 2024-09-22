@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
   }
  
   .drop_down_anchor::after{
-    content: "";
+  content: "";
   position: relative!important;
   border: none!important;
   font-family: "Font Awesome 5 Free";
@@ -39,5 +39,13 @@ export const GlobalStyle = createGlobalStyle`
   }
   .bsb-navbar.navbar-expand-md.bsb-navbar-hover .dropdown:hover > .drop_down_anchor::after{
    background: url('Assets/chevron-up-solid.svg') no-repeat center!important;
+    }
+
+    @media (max-width: 767px){
+      .bsb-navbar.navbar-expand-md.bsb-navbar-hover .dropdown:hover > .dropdown-menu.bsb-zoomIn,
+  .bsb-navbar.navbar-expand-md.bsb-navbar-hover .dropdown:hover > .dropdown-menu.show.bsb-zoomIn {
+position: absolute!important;
+right:0!important;
+  }
     }
 `;
