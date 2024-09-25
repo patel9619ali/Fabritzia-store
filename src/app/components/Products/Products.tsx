@@ -3,10 +3,11 @@ import { ProductData } from "../../models/Product"
 
 
 const Product = ({ prod, sliderValue }: { prod: ProductData, sliderValue: number }) => {
-   console.log(prod,"prodss");
+   console.log(prod,"prods");
+   console.log(sliderValue,"sliderValues");
    return (
     <>
-    <div>sddfdfs</div>
+    <h1 className="text-center">Products</h1>
     </>
  );
 }
