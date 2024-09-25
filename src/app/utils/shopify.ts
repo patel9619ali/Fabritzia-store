@@ -1,5 +1,5 @@
 
-// src/utils/shopify.ts
+import { ProductData } from '../models/Product';
 export const fetchShopifyProducts = async () => {
     const query = `
       {
@@ -31,8 +31,12 @@ export const fetchShopifyProducts = async () => {
         console.error('Error fetching Shopify products:', data.errors || response.statusText);
         throw new Error(data.errors ? data.errors[0].message : 'Failed to fetch Shopify products');
       }
-  
-      return data.data.products.edges;
+      const products: ProductData[] = data.data.products.edges.map((edge: any) => ({
+        id: edge.node.id,
+        title: edge.node.title,
+        productType: edge.node.productType,
+    }));
+      return products;
     } catch (error) {
       console.error('An error occurred:', error);
       throw error;
