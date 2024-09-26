@@ -14,7 +14,7 @@ content: '';
 position: relative !important;
 border: none !important;
 font-family: "Font Awesome 5 Free";
-background: url('Assets/profile.svg') no-repeat center!important;
+background: url('/Assets/profile.svg') no-repeat center!important;
 display: inline-block !important;
 width: 15px !important;
 height: 15px !important;

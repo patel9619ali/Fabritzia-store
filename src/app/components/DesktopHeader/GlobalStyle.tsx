@@ -33,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
   border: none!important;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  background: url('Assets/chevron-down-solid.svg') no-repeat center!important;
+  background: url('/Assets/chevron-down-solid.svg') no-repeat center!important;
   width: 10px!important;
   height: 10px!important;
   display: inline-block!important;
@@ -41,6 +41,6 @@ export const GlobalStyle = createGlobalStyle`
   vertical-align: middle;
   }
   .bsb-navbar.navbar-expand-md.bsb-navbar-hover .dropdown:hover > .drop_down_anchor::after{
-   background: url('Assets/chevron-up-solid.svg') no-repeat center!important;
+   background: url('/Assets/chevron-up-solid.svg') no-repeat center!important;
     }
 `;

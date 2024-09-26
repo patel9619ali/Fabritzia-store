@@ -12,7 +12,7 @@ border-bottom: .1rem solid rgba(18, 18, 18,.08);
 `;
 const Header = () => {
    return (
-      <header className='py-md-3 p-0'>
+      <header className='pt-md-3 p-0'>
         <StyledHeader className='container-fluid'>
             <DesktopHeader className="d-none d-md-block desktop_header_wrapper"/>
             <MobileHeader className="d-block d-md-none mobile_header_wrapper"/>

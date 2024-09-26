@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: 'www.westside.com',
         pathname: '/cdn/shop/files/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.shopify.com',
+        pathname: '/s/files/**',
+      },
     ],
   },
   compiler: {
