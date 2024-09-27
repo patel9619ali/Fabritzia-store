@@ -23,8 +23,8 @@ export const GlobalStyle = createGlobalStyle`
     border: .12rem solid rgba(18, 18, 18, .3) !important;
     width: 80%!important;
     position: absolute!important;
-    right:-20px!important;
-    top: 30px!important;
+    right:-20px;
+    top: 30px;
   }
  
   .drop_down_anchor::after{
