@@ -45,7 +45,7 @@ const StyledSearchWrapper = styled.div`
 export default function SearchBox({className}:Props){
     return(
       <StyledSearchWrapper className={className}>
-        <StyledInput className=" py-2 " placeholder="Type to search..." startContent={<SearchIcon className="me-3" size={14} />} type="search" />
+        <StyledInput className=" py-2 " placeholder="Type to search..." startContent={<SearchIcon className="me-3" size={20} />} type="search" />
       </StyledSearchWrapper>
     )
 }

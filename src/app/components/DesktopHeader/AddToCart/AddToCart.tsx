@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import {SearchIcon} from "../SearchBox/searchIcon"
 import WishList from "../AddToCart/WishList";
 import CartSVG from "../AddToCart/CartSVG";
 import LoginButton from "../AddToCart/LoginButton";
@@ -11,9 +12,10 @@ export default function AddToCart({className}:Props){
     return(
         <>
          <div className={className}>
-            <div className="desktop-localization-wrapper text-center justify-content-center align-items-center d-flex">
-              <WishList className="me-3"/>
-              <CartSVG className="me-3"/>
+            <div className="desktop-localization-wrapper text-center justify-content-center align-items-end d-flex">
+              <SearchIcon className="me-2" size={20}/>
+              <WishList className="me-2"/>
+              <CartSVG className="me-2"/>
               <LoginButton/>
             </div>  
          </div>

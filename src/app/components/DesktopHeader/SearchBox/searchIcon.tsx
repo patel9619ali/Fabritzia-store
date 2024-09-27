@@ -16,7 +16,7 @@ export const SearchIcon: React.FC<SearchIconProps> = ({
 }) => (
   <svg
     aria-hidden="true"
-    fill="none"
+    fill="#000"
     focusable="false"
     height={height || size}
     role="presentation"
@@ -24,19 +24,6 @@ export const SearchIcon: React.FC<SearchIconProps> = ({
     width={width || size}
     {...props}
   >
-    <path
-      d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={strokeWidth}
-    />
-    <path
-      d="M22 22L20 20"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={strokeWidth}
-    />
+    <path d="M11 2a9 9 0 0 1 6.866 14.82l-.159.18 4.243 4.243-.707.707L17 17.708A9 9 0 1 1 11 2zm0 1a8 8 0 1 0 0 16 8 8 0 0 0 0-16z"></path>
   </svg>
 );
