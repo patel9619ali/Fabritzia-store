@@ -1,6 +1,7 @@
 import {Input} from "@nextui-org/react";
 import styled from "styled-components";
 import {SearchIcon} from "./searchIcon";
+import SearchValue from "../../../components/SearchValue/SearchValue";
 import { useState } from 'react';
 
 type Props = {
@@ -55,9 +56,9 @@ export default function SearchBox({className, searchValue, setSearchValue }:Prop
     return(
       <>
       <StyledSearchWrapper className={className} onChange={handleInputChange}>
-        <StyledInput className=" py-2 " placeholder="Type to search..." startContent={<SearchIcon className="me-3" size={20} />} type="search" />
+        <StyledInput className="py-2 " placeholder="Type to search..." startContent={<SearchIcon className="me-3" size={20} />} type="search" />
       </StyledSearchWrapper>
-      {searchValue && <div>Hello</div>}
+      {searchValue && <SearchValue className={"position=absolute w-100"} searchValue={searchValue}/>}
       </>
     )
 }
