@@ -7,6 +7,7 @@ import CollectionsSlider from "./CollectionsSlider";
 
 export default async function CollectionDetails() {
   const collectionsProducts = await fetchShopifyCollectionsProducts();
+  console.log(collectionsProducts,"collectionsProducts");
     return (
       <div className="container">
         {collectionsProducts.map((collection: any) => {

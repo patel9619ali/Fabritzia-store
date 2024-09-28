@@ -8,7 +8,9 @@ const SearchWrapper = styled.div`
     margin-top: 5px;
     left: 0;
   }
-
+`;
+const SearchValueWrapper = styled.div`
+  }
 `;
 type Props = {
     className: string;
@@ -17,22 +19,10 @@ type Props = {
 
 
 export default function SearchValue({className, searchValue }:Props){
-  
     return(
       <>
       <SearchWrapper className={className}>
-           <div>{searchValue}</div> 
-           <div>{searchValue}</div> 
-           <div>{searchValue}</div> 
-           <div>{searchValue}</div> 
-           <div>{searchValue}</div> 
-           <div>{searchValue}</div> 
-           <div>{searchValue}</div> 
-           <div>{searchValue}</div> 
-           <div>{searchValue}</div> 
-           <div>{searchValue}</div> 
-           <div>{searchValue}</div> 
-           <div>{searchValue}</div> 
+           <SearchValueWrapper>{searchValue}</SearchValueWrapper> 
        </SearchWrapper>
       </>
     )
