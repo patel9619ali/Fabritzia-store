@@ -58,7 +58,7 @@ export default function SearchBox({className, searchValue, setSearchValue }:Prop
       <StyledSearchWrapper className={className} onChange={handleInputChange}>
         <StyledInput className="py-2 " placeholder="Type to search..." startContent={<SearchIcon className="me-3" size={20} />} type="search" />
       </StyledSearchWrapper>
-      {searchValue && <SearchValue className={"position=absolute w-100"} searchValue={searchValue}/>}
+      {searchValue && <SearchValue className={"position-absolute w-100"} searchValue={searchValue}/>}
       </>
     )
 }
