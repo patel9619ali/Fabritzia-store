@@ -4,9 +4,13 @@ import styled from 'styled-components';
 import Logo from '../../DesktopHeader/Logo/Logo'
 import AddToCart from '../../DesktopHeader/AddToCart/AddToCart'
 
-type Props= {
+type Props = {
     className: string;
-}
+    show: boolean;
+    setShow: React.Dispatch<React.SetStateAction<boolean>>;
+    searchValue: any;
+    setSearchValue: any;
+};
 
 const StyledSpan = styled.span`
 background-image: none!important;
@@ -26,7 +30,7 @@ border: none;
 const StyledNavbar = styled.nav`
 `
 
-const MobileNavBar = ({className}:Props) => {
+const MobileNavBar = ({className,show,setShow,searchValue,setSearchValue}:Props) => {
     const [isOpen, setIsOpen] = useState(true);
     
     const handleHamBurgerClick = () => {
@@ -67,7 +71,7 @@ const MobileNavBar = ({className}:Props) => {
             <Logo className=''/>
         </div>
         <div className='col-6'>
-            <AddToCart className=''/>
+            <AddToCart className=''show={show} setShow={setShow} searchValue={searchValue} setSearchValue={setSearchValue}/>
         </div>
     </div>
     </>

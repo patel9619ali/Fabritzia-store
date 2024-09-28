@@ -26,8 +26,7 @@ const StyledModalNavBar = styled(Modal)`
     }
 `
 
-export default function OpenSearchModalForMobile({show,setShow,className}:Props){
-    const [searchValue, setSearchValue] = useState("");
+export default function OpenSearchModalForMobile({show,setShow,className,searchValue,setSearchValue}:Props){
     return(
         <>
             <SearchIcon className="me-2 d-md-none" size={20} onClick={() => setShow(true)}/>
