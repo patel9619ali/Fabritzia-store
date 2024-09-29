@@ -11,8 +11,8 @@ export const fetchShopifyCollectionsProducts = async () => {
         title
         products(first: 55) {
           nodes {
-       			id
-        		title
+            id
+            title
             images(first: 10) {
               nodes {
                 height
@@ -28,12 +28,12 @@ export const fetchShopifyCollectionsProducts = async () => {
           title
           description
         }
+        handle
       }
     }
   }
 }
-
-  `;
+`;
 
   try {
     const response = await shopifyClient(query);
@@ -58,6 +58,7 @@ export const fetchShopifyCollectionsProducts = async () => {
             altText: img.altText,
           })),
       })),
+      handle: edge.node.handle,
     }));
     return collections;
   } catch (error) {

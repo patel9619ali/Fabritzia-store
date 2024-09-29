@@ -46,7 +46,7 @@ const MobileNavBar = ({className,show,setShow,searchValue,setSearchValue}:Props)
       };
    return (
     <>
-    <div className={`row ${className} mb-3 align-items-center`}>
+    <div className={`row ${className} align-items-center`}>
         <div className="col-2">
             <StyledNavbar className="navbar navbar_wrapper">
                 <StyledButtonToggle className="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
