@@ -5,7 +5,7 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Card from 'react-bootstrap/Card';
-import { usePathname } from 'next/navigation';
+import { usePathname,notFound } from 'next/navigation';
 import { Link } from "@nextui-org/react";
 import { createSlugProduct } from "@/app/utils/createSlugProduct";
 
@@ -25,9 +25,8 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
   };
   const pathname = usePathname();
   const handlePath = pathname.split('/').pop();
-
-  if (collection.handle !== handlePath) {
-    return null;
+  if(collection.handle !== handlePath){
+    notFound();
   }
   const CardWrapper = styled.div`
   `;
@@ -50,8 +49,7 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
     
       <CardWrapper key={collection.id} className="row">
           {collection.products.map((product: any) => {
-            const slugForProduct = createSlugProduct(product.title,product.id);
-            console.log(slugForProduct,"slugForProduct")
+            const slugForProduct = createSlugProduct(product.handle);
           return (
             <Card className="col-lg-4 p-0 border-0" key={product.id}>
               <CustomLink href={`/collections/${handlePath}/products/${slugForProduct}`}>

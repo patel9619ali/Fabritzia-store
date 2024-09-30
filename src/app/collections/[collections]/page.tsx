@@ -2,7 +2,9 @@ import { Metadata } from "next";
 import CollectionsData from "../../components/Collections/Collections";
 
 type Props = {
-  params:{slugProductName:string}
+  params:{
+    collections:string
+  }
 }
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -12,11 +14,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 
-
-export default function CollectionDetails() {
+export default function CollectionDetails({params}:Props) {
     return (
       <>
-        <CollectionsData/>
+        <CollectionsData params={params}/>
       </>
     );
 }

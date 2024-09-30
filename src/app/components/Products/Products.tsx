@@ -1,13 +1,13 @@
 // src/app/products/page.tsx
 type Props = {
-  params:{slugProductName:string}
   productDataApi: any;
 }
 
-export default function ProductData({params,productDataApi}:Props) {
+export default function ProductData({productDataApi}:Props) {
+  console.log(productDataApi,"productsAPI")
   return (
     <div>
-      <h1>Shopify Products</h1>
+      <h1>{productDataApi.title}</h1>
     </div>
   );
 }

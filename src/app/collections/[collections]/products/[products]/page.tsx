@@ -1,9 +1,9 @@
 import ProductData from "@/app/components/Products/Products";
 import { Metadata } from "next";
-import { fetchShopifyCollectionsProducts } from '../../../../api/fetchCollectionProducts';
+import { fetchProducts } from '../../../../api/fetchProducts';
 
 type Props = {
-  params:{slugProductName:string}
+  params:{products:string}
 }
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -15,12 +15,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 
 export default async function ProductDetails({params}:Props) {
-    const productDataApi = await fetchShopifyCollectionsProducts();
-    console.log(productDataApi,"productDataApi");
-    console.log(params,"params")
+    const productDataApi = await fetchProducts({params});
     return (
       <>
-       <ProductData params={params} productDataApi={productDataApi}/>
+       <ProductData productDataApi={productDataApi}/>
       </>
     );
 }

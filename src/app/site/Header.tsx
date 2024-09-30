@@ -14,8 +14,6 @@ border-bottom: .1rem solid rgba(18, 18, 18,.08);
 const Header = () => {
    const [show, setShow] = useState(false);
    const [searchValue, setSearchValue] = useState("");
-   // console.log(show,"Show");
-   // console.log(searchValue,"searchValue");
    return (
       <header className='pt-md-3 p-0'>
         <StyledHeader className='container-fluid'>
