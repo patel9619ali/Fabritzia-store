@@ -43,7 +43,6 @@ export const fetchProducts = async ({ params }: Props) => {
     }
   
     const product = data.data.productByHandle;
-    console.log(product);
     // Check if collection is null or undefined
     if (!product) {
       console.error(`Collection with handle "${params.products}" not found.`);

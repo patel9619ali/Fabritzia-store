@@ -1,13 +1,18 @@
 import ProductData from "@/app/components/Products/Products";
 import { Metadata } from "next";
 import { fetchProducts } from '../../../../api/fetchProducts';
+import BreadcrumbComponent from "@/app/components/Breadcrumb/Breadcrumb";
 
 type Props = {
-  params:{products:string}
+  params:{
+    products:string,
+    collections:string,
+  }
 }
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({params}:Props): Promise<Metadata> {
+  const productDataApi = await fetchProducts({params});
   return {
-    title: ``,
+    title: `${productDataApi.title}`,
     description: ``,
   };
 }
@@ -15,9 +20,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 
 export default async function ProductDetails({params}:Props) {
-    const productDataApi = await fetchProducts({params});
-    return (
-      <>
+  const productDataApi = await fetchProducts({params});
+  return (
+    <>
+        <BreadcrumbComponent params={params}/>
        <ProductData productDataApi={productDataApi}/>
       </>
     );
