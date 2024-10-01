@@ -6,7 +6,6 @@ import {createTitleFromSlug} from "../../utils/createTitleFromSlug"
 type Props = {
     params:{
       collections:string,
-      products:string,
     }
   }
 

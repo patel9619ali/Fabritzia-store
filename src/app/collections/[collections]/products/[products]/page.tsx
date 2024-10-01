@@ -12,7 +12,7 @@ type Props = {
 export async function generateMetadata({params}:Props): Promise<Metadata> {
   const productDataApi = await fetchProducts({params});
   return {
-    title: `${productDataApi.title}`,
+    title: ``,
     description: ``,
   };
 }

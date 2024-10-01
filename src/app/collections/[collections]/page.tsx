@@ -11,8 +11,8 @@ type Props = {
 export async function generateMetadata({params}:Props): Promise<Metadata> {
   const collectionsProducts = await fetchShopifyCollectionsProducts({params});
   return {
-    title: `${collectionsProducts.title}`,
-    description: `${collectionsProducts.seo.description}`,
+    title: ``,
+    description: ``,
   };
 }
 
