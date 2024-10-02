@@ -47,14 +47,12 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
   text-decoration: none;
   `;
   return (
-    
+    <div className="col-lg-8">
       <CardWrapper key={collection.id} className="row">
           {collection.products.map((product: any) => {
              const firstVariant = product.variants[0];
              const price = firstVariant.price;
-            //  const availableForSale = firstVariant.availableForSale;
              const selectedOptions = firstVariant.selectedOptions;
-            //  console.log(selectedOptions[1].value,"selectedOptions[1]")
             const slugForProduct = createSlugProduct(product.handle);
           return (
             <Card className="col-lg-4 p-0 border-0" key={product.id}>
@@ -81,6 +79,7 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
             );
         })}  
       </CardWrapper>
+      </div>
     );
   };
 export default CollectionsSlider;

@@ -1,5 +1,6 @@
 import { fetchShopifyCollectionsProducts } from '../../api/fetchCollectionProducts';
 import CollectionsSlider from "./CollectionsSlider";
+import {FilterAll} from "../../components/FilterAll/FilterAll"
 type Props = {
   params:{ collections:string}
 }
@@ -7,10 +8,12 @@ type Props = {
 
 export default async function CollectionDetails({params}:Props) {
   const collectionsProducts = await fetchShopifyCollectionsProducts({params});
-  // console.log(collectionsProducts,"collectionsProducts")
     return (
         <div className="container">
-           <CollectionsSlider collection={collectionsProducts}/>
+          <div className="row">
+              <FilterAll/>
+              <CollectionsSlider collection={collectionsProducts}/>
+          </div> 
         </div>
     );
 }
