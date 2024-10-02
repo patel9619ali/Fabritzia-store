@@ -11,36 +11,46 @@ type Props = {
 export const fetchShopifyCollectionsProducts = async ({ params }: Props) => {
   const query = `
   {
-    collectionByHandle(handle: "${params.collections}") {
-      id
-      title
-      products(first: 55) {
-        nodes {
-          id
+  collectionByHandle(handle: "${params.collections}") {
+    id
+    title
+    products(first: 100) {
+      nodes {
+        id
+        title
+        images(first: 10) {
+          nodes {
+            height
+            altText
+            id
+            src
+            width
+          }
+        }
+        seo {
+          description
           title
-          images(first: 10) {
-            nodes {
-              height
-              altText
-              id
-              src
-              width
+        }
+        handle
+        variants(first: 10) {
+          nodes {
+            price
+            availableForSale
+            selectedOptions {
+              name
+              value
             }
           }
-          seo {
-            description
-            title
-          }
-          handle
         }
       }
-      seo {
-        title
-        description
-      }
-      handle
     }
-  }`;
+    seo {
+      title
+      description
+    }
+    handle
+  }
+}`;
   
   try {
     const response = await shopifyClient(query);
@@ -79,6 +89,15 @@ export const fetchShopifyCollectionsProducts = async ({ params }: Props) => {
           width: img.width,
           altText: img.altText,
         })),
+        variants: product.variants.nodes.map((variant: any) => ({
+          price: variant.price,
+          availableForSale: variant.availableForSale,
+          selectedOptions: variant.selectedOptions.map((selectedOption: any) => ({
+            name: selectedOption.name,
+            value: selectedOption.value,
+          })),
+        })),
+
         handle: product.handle,
       })),
       handle: collection.handle,

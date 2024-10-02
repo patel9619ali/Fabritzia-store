@@ -7,6 +7,7 @@ type Props = {
 
 export default async function CollectionDetails({params}:Props) {
   const collectionsProducts = await fetchShopifyCollectionsProducts({params});
+  // console.log(collectionsProducts,"collectionsProducts")
     return (
         <div className="container">
            <CollectionsSlider collection={collectionsProducts}/>

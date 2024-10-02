@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 import { usePathname,notFound } from 'next/navigation';
 import { Link } from "@nextui-org/react";
 import { createSlugProduct } from "@/app/utils/createSlugProduct";
+import CollectionProductSize from "../Collections/CollectionProductSize"
 
 interface CollectionsSliderProps {
     collection: any;
@@ -49,6 +50,11 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
     
       <CardWrapper key={collection.id} className="row">
           {collection.products.map((product: any) => {
+             const firstVariant = product.variants[0];
+             const price = firstVariant.price;
+            //  const availableForSale = firstVariant.availableForSale;
+             const selectedOptions = firstVariant.selectedOptions;
+            //  console.log(selectedOptions[1].value,"selectedOptions[1]")
             const slugForProduct = createSlugProduct(product.handle);
           return (
             <Card className="col-lg-4 p-0 border-0" key={product.id}>
@@ -60,9 +66,14 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
                     ))}
                   </Slider>      
                   <Card.Body>
-                    <Card.Title>{product.title}</Card.Title>
-                    <Card.Text> Some quick example text to build on the card title and make up the bulk of the card's content.
-                    </Card.Text>
+                  <Card.Title>{product.title}</Card.Title>
+                  <Card.Title>{price}</Card.Title>
+                  {selectedOptions[1] && <p>{selectedOptions[1].value}</p>}
+                  {product.variants.map((variant: any, index: number) => {
+                      return (
+                        <CollectionProductSize key={index} variant={variant}/>
+                      );
+                  })}
                   </Card.Body>    
                 </SliderWrapper>  
               </CustomLink>
@@ -73,3 +84,4 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
     );
   };
 export default CollectionsSlider;
+                      
