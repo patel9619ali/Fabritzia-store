@@ -9,17 +9,15 @@ type Props = {
 };
 
 const SpanSize = styled.span`
-  border: 1px solid black;
-  color: #fff;
-  font-size: 12px;
-  background: grey;
+
+  font-size: 16px;
   margin-right: 5px;
   padding: 2px;
+  color: #dcdcdc;
+  cursor: no-drop;
 &.available_for_sale{
- 
-    font-weight: 800;
-    color: #000;
-    cursor: no-drop;
+    color: #000!important;
+    cursor: pointer!important;
 }
 }`;
 

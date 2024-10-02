@@ -32,8 +32,22 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
   if(collection.handle !== handlePath){
     notFound();
   }
-  let [view,setView] = useState(4);
+  let [view,setView] = useState(6);
+  let [mobileView,setMobileView] = useState(12);
 
+
+  const CardTitle = styled(Card.Title)`
+    font-style: normal;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 16px;
+  `;
+  const CardPrice = styled(Card.Title)`
+    font-style: normal;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 16px;
+  `;
   const CardWrapper = styled.div`
   `;
   const CardImage = styled(Image)`
@@ -55,15 +69,15 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
   return (
     <>
     <div className="col-lg-8">
-    <ViewTheComponent view={view} setView={setView}/>
+    <ViewTheComponent view={view} setView={setView} mobileView={mobileView} setMobileView={setMobileView}/>
       <CardWrapper key={collection.id} className="row">
           {collection.products.map((product: any) => {
              const firstVariant = product.variants[0];
-             const price = firstVariant.price;
+             const price = Math.round(firstVariant.price);
              const selectedOptions = firstVariant.selectedOptions;
             const slugForProduct = createSlugProduct(product.handle);
           return (
-            <Card className={`col-lg-${view} p-0 border-0`} key={product.id}>
+            <Card className={`col-lg-${view} col-${mobileView} p-0 border-0`} key={product.id}>
               <CustomLink href={`/collections/${handlePath}/products/${slugForProduct}`}>
                 <SliderWrapper className="me-lg-3 ms-lg-0 mx-3 mb-3">
                   <Slider key={product.id} {...settings}>
@@ -72,8 +86,8 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
                     ))}
                   </Slider>      
                   <Card.Body>
-                  <Card.Title>{product.title}</Card.Title>
-                  <Card.Title>{price}</Card.Title>
+                  <CardTitle>{product.title}</CardTitle>
+                  <CardPrice>₹ {price}</CardPrice>
                   {selectedOptions[1] && <p>{selectedOptions[1].value}</p>}
                   {product.variants.map((variant: any, index: number) => {
                       return (
