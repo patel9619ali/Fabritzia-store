@@ -8,35 +8,40 @@ import Card from 'react-bootstrap/Card';
 import { usePathname,notFound } from 'next/navigation';
 import { Link } from "@nextui-org/react";
 import { createSlugProduct } from "@/app/utils/createSlugProduct";
-import CollectionProductSize from "../Collections/CollectionProductSize"
+import CollectionProductSize from "../Collections/CollectionProductSize";
+import { useState } from "react";
+import ViewTheComponent from "./ViewTheComponent";
 
 interface CollectionsSliderProps {
     collection: any;
 }
+
 const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
   const settings = {
     dots: false,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: true,
-    autoplay: false,
+    autoplay: true,
     arrows: false,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 2000,
   };
   const pathname = usePathname();
   const handlePath = pathname.split('/').pop();
   if(collection.handle !== handlePath){
     notFound();
   }
+  let [view,setView] = useState(4);
+
   const CardWrapper = styled.div`
   `;
   const CardImage = styled(Image)`
   object-fit: cover;
-  border-radius: 10px 10px 0 0!important
+  
   `;
   const SliderWrapper = styled.div`
-    border-radius: 10px!important;
+    
     box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.09)!important;
     &:hover{
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.09) !important;
@@ -46,8 +51,11 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
   color: #3d4246;
   text-decoration: none;
   `;
+  console.log(view,"view");
   return (
+    <>
     <div className="col-lg-8">
+    <ViewTheComponent view={view} setView={setView}/>
       <CardWrapper key={collection.id} className="row">
           {collection.products.map((product: any) => {
              const firstVariant = product.variants[0];
@@ -55,7 +63,7 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
              const selectedOptions = firstVariant.selectedOptions;
             const slugForProduct = createSlugProduct(product.handle);
           return (
-            <Card className="col-lg-4 p-0 border-0" key={product.id}>
+            <Card className={`col-lg-${view} p-0 border-0`} key={product.id}>
               <CustomLink href={`/collections/${handlePath}/products/${slugForProduct}`}>
                 <SliderWrapper className="me-lg-3 ms-lg-0 mx-3 mb-3">
                   <Slider key={product.id} {...settings}>
@@ -80,6 +88,7 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
         })}  
       </CardWrapper>
       </div>
+      </> 
     );
   };
 export default CollectionsSlider;
