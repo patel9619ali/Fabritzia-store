@@ -1,9 +1,9 @@
-'use client';
+import styled from "styled-components";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
-import { Vendor } from './Vendow';
-import styled from 'styled-components';
-
+type Props = {
+    collectionsProducts:any;
+}
 const SideBar = styled.div`
 `;
 const DropDownWrapper = styled(Dropdown.Menu)`
@@ -11,7 +11,7 @@ const DropDownWrapper = styled(Dropdown.Menu)`
   border: none;
   border-bottom: 2px solid #dcdcdc;
   border-radius: 0px;
-    transform: none!important;
+  transform: none!important;
 `;
 const SideBarWrapper = styled(Dropdown)`
   border-right: 3px solid #dcdcdc;
@@ -40,35 +40,30 @@ const CollectionButton = styled(Dropdown.Toggle)`
       top: 14px; 
     }
 `;
-type Props = {
-    collectionsProducts:any;
-}
-
-
-export default function CollectionsFilter({collectionsProducts}:Props){
-    const uniqueCategories = Array.from(
+export function Vendor({collectionsProducts}:Props){
+    const uniqueVendor = Array.from(
         new Set(
             collectionsProducts.products
-              .map(({ category }: any) => category.name)
-              .filter((name: string | null) => name !== null) // Filter out null values
+              .map(({ vendor }: any) => vendor)
+              .filter((vendor: string | null) => vendor !== null) // Filter out null values
           )
       );
-      console.log(uniqueCategories,"uniqueCategories")
+      console.log(uniqueVendor,"uniqueVendor")
     return(
-    <SideBar className='col-lg-4'>
+        <>
         <SideBarWrapper className="" autoClose={false}>
             <CollectionButton id="dropdown-autoclose-false" className="position-relative">
-                Collections
+                Vendor
             </CollectionButton>
             <DropDownWrapper className="px-3 position-relative">
                 <Form>
-                {uniqueCategories.map((categoryName: any, index: number) => {
+                {uniqueVendor.map((vendor: any, index: number) => {
                 return (
                 <Form.Check
                     key={index}
-                    value={categoryName}
-                    label={categoryName}
-                    name="collection"
+                    value={vendor}
+                    label={vendor}
+                    name="vendor"
                     type="checkbox"
                 />
                 );
@@ -76,7 +71,6 @@ export default function CollectionsFilter({collectionsProducts}:Props){
                 </Form>
             </DropDownWrapper>
         </SideBarWrapper>
-        <Vendor collectionsProducts={collectionsProducts}/>
-    </SideBar>
+        </>
     )
 }

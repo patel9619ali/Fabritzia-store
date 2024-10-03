@@ -15,28 +15,7 @@ import ViewTheComponent from "./ViewTheComponent";
 interface CollectionsSliderProps {
     collection: any;
 }
-
-const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
-  const settings = {
-    dots: false,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: true,
-    autoplay: true,
-    arrows: false,
-    autoplaySpeed: 2000,
-  };
-  const pathname = usePathname();
-  const handlePath = pathname.split('/').pop();
-  if(collection.handle !== handlePath){
-    notFound();
-  }
-  let [view,setView] = useState(6);
-  let [mobileView,setMobileView] = useState(12);
-
-
-  const CardTitle = styled(Card.Title)`
+const CardTitle = styled(Card.Title)`
     font-style: normal;
     font-weight: 400;
     text-transform: capitalize;
@@ -65,6 +44,27 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
   color: #3d4246;
   text-decoration: none;
   `;
+const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
+  const settings = {
+    dots: false,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: true,
+    autoplay: true,
+    arrows: false,
+    autoplaySpeed: 2000,
+  };
+  const pathname = usePathname();
+  const handlePath = pathname.split('/').pop();
+  if(collection.handle !== handlePath){
+    notFound();
+  }
+  let [view,setView] = useState(6);
+  let [mobileView,setMobileView] = useState(12);
+
+
+  
   return (
     <>
     <div className="col-lg-8">
