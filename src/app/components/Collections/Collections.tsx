@@ -10,10 +10,9 @@ export default async function CollectionDetails({params}:Props) {
     return (
         <div className="container">
           <div className="row">
-              <FilterAll params={params}/>
+              <FilterAll collectionsProducts={collectionsProducts}/>
               <CollectionsSlider collection={collectionsProducts}/>
           </div> 
         </div>
     );
 }
-      

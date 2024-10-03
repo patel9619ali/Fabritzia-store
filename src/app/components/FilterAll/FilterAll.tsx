@@ -1,10 +1,14 @@
 'use client';
+import CollectionsFilter from './CollectionsFilter';
+
 type Props = {
-    params:{ collections:string}
+    collectionsProducts:any
   }
-export function FilterAll({params}:Props) {
+export function FilterAll({collectionsProducts}:Props) {
     return (
-        <div className="col-lg-4">Hello</div>
-    );
+        <>
+          <CollectionsFilter collectionsProducts={collectionsProducts}/>
+        </>
+      );
 }
       

@@ -65,7 +65,6 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
   color: #3d4246;
   text-decoration: none;
   `;
-  console.log(view,"view");
   return (
     <>
     <div className="col-lg-8">

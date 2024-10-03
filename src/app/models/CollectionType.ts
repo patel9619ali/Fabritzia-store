@@ -9,6 +9,9 @@ export interface CollectionMetaData {
   title: string;
   description: string;
 }
+export interface CollectionCategoryName {
+  name: string;
+}
 
 // This represents a single product in a collection
 export type CollectionProductData = {
@@ -16,6 +19,9 @@ export type CollectionProductData = {
   title: string;
   images: CollectionProductImage[] | null; // Array of images or null if no images
   handle: string;
+  vendor: string;
+  productType: string;
+  category: CollectionCategoryName[] | null;
 };
 
 // Represents the individual images of a product
@@ -31,7 +37,6 @@ export type CollectionProductImage = {
 export type CollectionData = {
   id: string | null;
   title: string | null;
-  
   seo: CollectionMetaData | null; 
   products: CollectionProductData[] | null; 
   handle: string;

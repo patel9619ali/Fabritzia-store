@@ -14,6 +14,11 @@ export const fetchShopifyCollectionsProducts = async ({ params }: Props) => {
   collectionByHandle(handle: "${params.collections}") {
     id
     title
+    seo {
+      title
+      description
+    }
+    handle
     products(first: 100) {
       nodes {
         id
@@ -42,13 +47,13 @@ export const fetchShopifyCollectionsProducts = async ({ params }: Props) => {
             }
           }
         }
+        vendor
+        productType
+        category {
+          name
+        }
       }
     }
-    seo {
-      title
-      description
-    }
-    handle
   }
 }`;
   
@@ -97,7 +102,11 @@ export const fetchShopifyCollectionsProducts = async ({ params }: Props) => {
             value: selectedOption.value,
           })),
         })),
-
+        category: {
+          name: product.category?.name || null,
+        },
+        vendor: product.vendor,
+        productType: product.productType,
         handle: product.handle,
       })),
       handle: collection.handle,

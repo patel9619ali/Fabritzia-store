@@ -132,7 +132,6 @@ span:not(:last-child){
 }
 `;
 export default function ViewTheComponent({view,setView,setMobileView,mobileView}:Props){
-    console.log(view);
     let [active,setActive] = useState('');
     return(
         <>
