@@ -45,7 +45,7 @@ export default function BreadcrumbComponent({params}:Props) {
         return createTitleFromSlug(key)
     })
     return (
-        <BreadcrumbWrapper className="container p-0 my-3">
+        <BreadcrumbWrapper className="container-fluid ps-lg-3 my-3 ps-3">
             <Breadcrumb.Item href="/">
               <HomeStyledSVG viewBox="0 0 16 16" aria-hidden="true" className="home_page" focusable="false">
                 <path d="M7.62 2.124a.498.498 0 01.372-.122.498.498 0 01.373.122l5.45 4.78a.499.499 0 01-.659.75l-.207-.182v5.501a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 00-.5-.5h-1a.5.5 0 00-.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5V7.547l-.121.106a.499.499 0 11-.658-.75l5.45-4.78z"></path>
@@ -63,8 +63,3 @@ export default function BreadcrumbComponent({params}:Props) {
         </BreadcrumbWrapper>
     );
 }
-{/* <Breadcrumb.Item key={index}>{key}{index}</Breadcrumb.Item> */}
-{/* <Breadcrumb.Item href={`/${pathName}`}>
-Library
-</Breadcrumb.Item>
-<Breadcrumb.Item active>Data</Breadcrumb.Item> */}

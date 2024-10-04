@@ -1,4 +1,5 @@
 'use client';
+import { useState } from "react";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import { Vendor } from './Vendor';
@@ -12,7 +13,24 @@ const DropDownWrapper = styled(Dropdown.Menu)`
   border: none;
   border-bottom: 2px solid #dcdcdc;
   border-radius: 0px;
-    transform: none!important;
+  transform: none!important;
+  height:300px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 `;
 const SideBarWrapper = styled(Dropdown)`
   border-right: 3px solid #dcdcdc;
@@ -47,6 +65,7 @@ type Props = {
 
 
 export default function CollectionsFilter({collectionsProducts}:Props){
+  const [isOpen, setIsOpen] = useState(true); 
     const uniqueCategories = Array.from(
         new Set(
             collectionsProducts.products
@@ -54,11 +73,13 @@ export default function CollectionsFilter({collectionsProducts}:Props){
               .filter((name: string | null) => name !== null) // Filter out null values
           )
       );
-      console.log(uniqueCategories,"uniqueCategories")
+      const handleToggle = () => {
+        setIsOpen(!isOpen); 
+    };
     return(
-    <SideBar className='col-lg-4'>
-        <SideBarWrapper className="" autoClose={false}>
-            <CollectionButton id="dropdown-autoclose-false" className="position-relative">
+    <SideBar className='col-lg-2'>
+        <SideBarWrapper className="" show={isOpen} autoClose={false}>
+            <CollectionButton id="dropdown-autoclose-false" className="position-relative show" onClick={handleToggle}>
                 Collections
             </CollectionButton>
             <DropDownWrapper className="px-3 position-relative">

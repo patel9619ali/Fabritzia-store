@@ -8,7 +8,7 @@ type Props = {
 export default async function CollectionDetails({params}:Props) {
   const collectionsProducts = await fetchShopifyCollectionsProducts({params});
     return (
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
               <FilterAll collectionsProducts={collectionsProducts}/>
               <CollectionsSlider collection={collectionsProducts}/>

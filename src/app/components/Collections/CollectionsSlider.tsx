@@ -44,6 +44,11 @@ const CardTitle = styled(Card.Title)`
   color: #3d4246;
   text-decoration: none;
   `;
+  const SliderImageWrapper = styled(Slider)`
+    .slick-slide div div {
+      max-width: 100%!important;
+    }
+  `;
 const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
   const settings = {
     dots: false,
@@ -51,7 +56,7 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     arrows: false,
     autoplaySpeed: 2000,
   };
@@ -67,7 +72,7 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
   
   return (
     <>
-    <div className="col-lg-8">
+    <div className="col-lg-10">
     <ViewTheComponent view={view} setView={setView} mobileView={mobileView} setMobileView={setMobileView}/>
       <CardWrapper key={collection.id} className="row">
           {collection.products.map((product: any) => {
@@ -79,11 +84,11 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
             <Card className={`col-lg-${view} col-${mobileView} p-0 border-0`} key={product.id}>
               <CustomLink href={`/collections/${handlePath}/products/${slugForProduct}`}>
                 <SliderWrapper className="me-lg-3 ms-lg-0 mx-3 mb-3">
-                  <Slider key={product.id} {...settings}>
+                  <SliderImageWrapper className="abc" key={product.id} {...settings}>
                     {product.images.map((image: any, imgIndex: number) => (
                       <CardImage key={imgIndex} className="w-100 opacity-1" src={image.src} alt={`Image of ${image.title}`} width={450} height={200}/>
                     ))}
-                  </Slider>      
+                  </SliderImageWrapper>      
                   <Card.Body>
                   <CardTitle>{product.title}</CardTitle>
                   <CardPrice>₹ {price}</CardPrice>
