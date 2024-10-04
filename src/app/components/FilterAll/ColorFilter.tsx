@@ -1,5 +1,5 @@
-import { useState } from "react";
 import styled from "styled-components";
+import { useState } from "react";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 type Props = {
@@ -58,33 +58,34 @@ const CollectionButton = styled(Dropdown.Toggle)`
       top: 14px; 
     }
 `;
-export function Vendor({collectionsProducts}:Props){
+export function ColorFilter({collectionsProducts}:Props){
+  console.log(collectionsProducts,"collectionsProductsFilter")
   const [isOpen, setIsOpen] = useState(true); 
-    const uniqueVendor = Array.from(
-        new Set(
-            collectionsProducts.products
-              .map(({ vendor }: any) => vendor)
-              .filter((vendor: string | null) => vendor !== null) // Filter out null values
-          )
-      );
-      const handleToggle = () => {
-        setIsOpen(!isOpen); // Toggle open/closed state
-    };
+  let variants = collectionsProducts.products.map(({ variants }: any) => variants)
+  let colorValues = variants.flat().map((variant: any) => {
+    const colorOption = variant.selectedOptions.find((option: any) => option.name === "COLOR");
+    return colorOption ? colorOption.value : null;
+  });
+  let colorUniqueValues = new Set(colorValues);
+  let uniqueValues = Array.from(colorUniqueValues);
+  const handleToggle = () => {
+    setIsOpen(!isOpen); 
+  };
     return(
         <>
         <SideBarWrapper className="" show={isOpen} autoClose={false}>
             <CollectionButton id="dropdown-autoclose-false" className="position-relative show" onClick={handleToggle}>
-                Vendor
+                Choose Color
             </CollectionButton>
             <DropDownWrapper className="px-3 position-relative">
                 <Form>
-                {uniqueVendor.map((vendor: any, index: number) => {
+                {uniqueValues.map((uniqueValues: any, index: number) => {
                 return (
                 <Form.Check
                     key={index}
-                    value={vendor}
-                    label={vendor}
-                    name="vendor"
+                    value={uniqueValues}
+                    label={uniqueValues}
+                    name="color"
                     type="checkbox"
                 />
                 );

@@ -84,7 +84,7 @@ export function ProductType({collectionsProducts}:Props){
                     key={index}
                     value={productType}
                     label={productType}
-                    name="vendor"
+                    name="productType"
                     type="checkbox"
                 />
                 );

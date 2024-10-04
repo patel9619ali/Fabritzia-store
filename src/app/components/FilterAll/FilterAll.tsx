@@ -6,7 +6,6 @@ type Props = {
     collectionsProducts:any
   }
 export function FilterAll({collectionsProducts}:Props) {
-  console.log(collectionsProducts,"collectionsProducts")
     return (
         <>
           <FilterMobileView className="d-lg-none d-flex justify-content-around position-fixed bottom-0 py-3" collectionsProducts={collectionsProducts}/>

@@ -4,6 +4,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import { Vendor } from './Vendor';
 import { ProductType } from './ProductType';
+import { ColorFilter } from './ColorFilter';
 import styled from 'styled-components';
 
 const SideBar = styled.div`
@@ -101,6 +102,7 @@ export default function CollectionsFilter({collectionsProducts,className}:Props)
         </SideBarWrapper>
         <Vendor collectionsProducts={collectionsProducts}/>
         <ProductType collectionsProducts={collectionsProducts}/>
+        <ColorFilter collectionsProducts={collectionsProducts}/>
     </SideBar>
     )
 }

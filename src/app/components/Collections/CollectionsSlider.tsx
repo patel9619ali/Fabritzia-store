@@ -66,7 +66,7 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
     notFound();
   }
   let [view,setView] = useState(6);
-  let [mobileView,setMobileView] = useState(12);
+  let [mobileView,setMobileView] = useState(6);
 
 
   
