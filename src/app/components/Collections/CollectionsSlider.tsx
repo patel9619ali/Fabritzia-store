@@ -81,10 +81,10 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
              const selectedOptions = firstVariant.selectedOptions;
             const slugForProduct = createSlugProduct(product.handle);
           return (
-            <Card className={`col-lg-${view} col-${mobileView} p-0 border-0`} key={product.id}>
+            <Card className={`col-md-${view} col-${mobileView} p-0 border-0`} key={product.id}>
               <CustomLink href={`/collections/${handlePath}/products/${slugForProduct}`}>
                 <SliderWrapper className="me-lg-3 ms-lg-0 mx-3 mb-3">
-                  <SliderImageWrapper className="abc" key={product.id} {...settings}>
+                  <SliderImageWrapper key={product.id} {...settings}>
                     {product.images.map((image: any, imgIndex: number) => (
                       <CardImage key={imgIndex} className="w-100 opacity-1" src={image.src} alt={`Image of ${image.title}`} width={450} height={200}/>
                     ))}

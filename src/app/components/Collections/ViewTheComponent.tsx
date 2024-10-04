@@ -137,29 +137,29 @@ export default function ViewTheComponent({view,setView,setMobileView,mobileView}
         <>
             <FlexWrapper className="d-flex align-items-center mb-3">
                 <ViewText className="me-3 mb-0">View As</ViewText>
-                <TwoGridViewerDesktop className={`${view == `6` ? 'active' : ''} px-2 py-1 me-3 d-lg-block d-none`} onClick={()=> {setView(6);setActive(`6`)}}>
+                <TwoGridViewerDesktop className={`${view == `6` ? 'active' : ''} px-2 py-1 me-3 d-md-block d-none`} onClick={()=> {setView(6);setActive(`6`)}}>
                     <span></span>
                     <span></span>
                 </TwoGridViewerDesktop>
-                <ThreeGridViewerDesktop className={`${view == `4` ? 'active' : ''} px-2 py-1 me-3 d-lg-block d-none`} onClick={()=> {setView(4);setActive(`4`)}}>
+                <ThreeGridViewerDesktop className={`${view == `4` ? 'active' : ''} px-2 py-1 me-3 d-md-block d-none`} onClick={()=> {setView(4);setActive(`4`)}}>
                     <span></span>
                     <span></span>
                     <span></span>
                 </ThreeGridViewerDesktop>
-                <FourGridViewerDesktop className={`${view == `3` ? 'active' : ''} px-2 py-1 d-lg-block d-none`} onClick={()=> {setView(3);setActive(`3`)}}>
+                <FourGridViewerDesktop className={`${view == `3` ? 'active' : ''} px-2 py-1 d-md-block d-none`} onClick={()=> {setView(3);setActive(`3`)}}>
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                 </FourGridViewerDesktop>
-                <TwoGridViewerMobile className={`${mobileView === `12` ? 'active' : ''} px-2 py-1 me-3 d-lg-none d-block`} onClick={()=> {setMobileView(12);setActive(`12`)}}>
+                <TwoGridViewerMobile className={`${mobileView === `12` ? 'active' : ''} px-2 py-1 me-3 d-md-none d-block`} onClick={()=> {setMobileView(12);setActive(`12`)}}>
                     <span></span>
                 </TwoGridViewerMobile>
-                <ThreeGridViewerMobile className={`${mobileView === `6` ? 'active' : ''} px-2 py-1 me-3 d-lg-none d-block`} onClick={()=> {setMobileView(6);setActive(`6`)}}>
+                <ThreeGridViewerMobile className={`${mobileView === `6` ? 'active' : ''} px-2 py-1 me-3 d-md-none d-block`} onClick={()=> {setMobileView(6);setActive(`6`)}}>
                     <span></span>
                     <span></span>
                 </ThreeGridViewerMobile>
-                <FourGridViewerMobile className={`${mobileView === `4` ? 'active' : ''} px-2 py-1 d-lg-none d-block`} onClick={()=> {setMobileView(4);setActive(`4`)}}>
+                <FourGridViewerMobile className={`${mobileView === `4` ? 'active' : ''} px-2 py-1 d-md-none d-block`} onClick={()=> {setMobileView(4);setActive(`4`)}}>
                     <span></span>
                     <span></span>
                     <span></span>

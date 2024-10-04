@@ -61,10 +61,11 @@ const CollectionButton = styled(Dropdown.Toggle)`
 `;
 type Props = {
     collectionsProducts:any;
+    className:string,
 }
 
 
-export default function CollectionsFilter({collectionsProducts}:Props){
+export default function CollectionsFilter({collectionsProducts,className}:Props){
   const [isOpen, setIsOpen] = useState(true); 
     const uniqueCategories = Array.from(
         new Set(
@@ -77,7 +78,7 @@ export default function CollectionsFilter({collectionsProducts}:Props){
         setIsOpen(!isOpen); 
     };
     return(
-    <SideBar className='col-lg-2'>
+    <SideBar className={`${className} col-lg-2`}>
         <SideBarWrapper className="" show={isOpen} autoClose={false}>
             <CollectionButton id="dropdown-autoclose-false" className="position-relative show" onClick={handleToggle}>
                 Collections
