@@ -6,8 +6,16 @@ import { Vendor } from './Vendor';
 import { ProductType } from './ProductType';
 import { ColorFilter } from './ColorFilter';
 import styled from 'styled-components';
+import Link from 'next/link'
 
 const SideBar = styled.div`
+`;
+const ClearAll = styled.span`
+    color: #F00;
+    font-weight: 700;
+    font-size: 12px;
+    padding-right: 10px;
+    cursor: pointer;
 `;
 const DropDownWrapper = styled(Dropdown.Menu)`
   width: 100%;
@@ -15,7 +23,14 @@ const DropDownWrapper = styled(Dropdown.Menu)`
   border-bottom: 2px solid #dcdcdc;
   border-radius: 0px;
   transform: none!important;
-  height:300px;
+  height:150px;
+  font-size: 13px;
+  input.form-check-input{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 6px;
+  }
   overflow-y: scroll;
   &::-webkit-scrollbar {
     width: 5px;
@@ -36,11 +51,22 @@ const DropDownWrapper = styled(Dropdown.Menu)`
 const SideBarWrapper = styled(Dropdown)`
   border-right: 3px solid #dcdcdc;
 `;
+const FilterText = styled.span`
+font-size: 16px;
+font-weight: 600;
+`;
+const FilterWrapper = styled.div`
+  border-bottom:1px solid #e9e9ed;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
 const CollectionButton = styled(Dropdown.Toggle)`
   background: #fff!important;
   color: rgb(0 0 0 / 65%);
   border: none!important;
   font-weight: 700;
+  font-size: 15px;
   &:hover{
     color: rgb(0 0 0 / 65%);
   }
@@ -52,12 +78,12 @@ const CollectionButton = styled(Dropdown.Toggle)`
     }
     &.dropdown-toggle::after{
       background: url('/Assets/chevron-down-solid.svg') no-repeat center!important;
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       border: none;
       position: absolute;
-      right: -15px;
-      top: 14px; 
+      right: -20px;
+      top: 13px;
     }
 `;
 type Props = {
@@ -80,8 +106,13 @@ export default function CollectionsFilter({collectionsProducts,className}:Props)
     };
     return(
     <SideBar className={`${className} col-lg-2`}>
+      <FilterWrapper className="pb-2">
+        <FilterText className="ps-2">Filter</FilterText>
+        <ClearAll>Clear All</ClearAll>
+      </FilterWrapper>
+
         <SideBarWrapper className="" show={isOpen} autoClose={false}>
-            <CollectionButton id="dropdown-autoclose-false" className="position-relative show" onClick={handleToggle}>
+            <CollectionButton id="dropdown-autoclose-false" className="position-relative show ps-2" onClick={handleToggle}>
                 Collections
             </CollectionButton>
             <DropDownWrapper className="px-3 position-relative">

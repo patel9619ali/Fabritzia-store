@@ -13,7 +13,14 @@ const DropDownWrapper = styled(Dropdown.Menu)`
   border-bottom: 2px solid #dcdcdc;
   border-radius: 0px;
   transform: none!important;
-  height:300px;
+  height:150px;
+  font-size: 13px;
+  input.form-check-input{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 6px;
+  }
   overflow-y: scroll;
   &::-webkit-scrollbar {
     width: 5px;
@@ -39,6 +46,7 @@ const CollectionButton = styled(Dropdown.Toggle)`
   color: rgb(0 0 0 / 65%);
   border: none!important;
   font-weight: 700;
+  font-size: 15px;
   &:hover{
     color: rgb(0 0 0 / 65%);
   }
@@ -50,12 +58,12 @@ const CollectionButton = styled(Dropdown.Toggle)`
     }
     &.dropdown-toggle::after{
       background: url('/Assets/chevron-down-solid.svg') no-repeat center!important;
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       border: none;
       position: absolute;
-      right: -15px;
-      top: 14px; 
+      right: -20px;
+      top: 13px;
     }
 `;
 export function Vendor({collectionsProducts}:Props){
@@ -73,7 +81,7 @@ export function Vendor({collectionsProducts}:Props){
     return(
         <>
         <SideBarWrapper className="" show={isOpen} autoClose={false}>
-            <CollectionButton id="dropdown-autoclose-false" className="position-relative show" onClick={handleToggle}>
+            <CollectionButton id="dropdown-autoclose-false" className="position-relative show ps-2" onClick={handleToggle}>
                 Vendor
             </CollectionButton>
             <DropDownWrapper className="px-3 position-relative">

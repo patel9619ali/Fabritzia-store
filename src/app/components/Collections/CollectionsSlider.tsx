@@ -65,7 +65,7 @@ const CollectionsSlider = ({ collection }: CollectionsSliderProps) => {
   if(collection.handle !== handlePath){
     notFound();
   }
-  let [view,setView] = useState(6);
+  let [view,setView] = useState(4);
   let [mobileView,setMobileView] = useState(6);
 
 
