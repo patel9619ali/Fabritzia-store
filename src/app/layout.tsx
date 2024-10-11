@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./site/Header";
 import Footer from "./site/Footer";
 import Link from "next/link";
+import {SessionProvider} from "next-auth/react"
 
 
 
@@ -23,6 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <SessionProvider>
     <html lang="en">
       <Head> 
       <link rel="icon" href="/favicon.png" />
@@ -33,5 +35,6 @@ export default function RootLayout({
           <Footer />
         </body>
     </html>
+    </SessionProvider>
   );
 }

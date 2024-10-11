@@ -67,7 +67,6 @@ const CollectionButton = styled(Dropdown.Toggle)`
     }
 `;
 export function ColorFilter({collectionsProducts}:Props){
-  console.log(collectionsProducts,"collectionsProductsFilter")
   const [isOpen, setIsOpen] = useState(true); 
   let variants = collectionsProducts.products.map(({ variants }: any) => variants)
   let colorValues = variants.flat().map((variant: any) => {
