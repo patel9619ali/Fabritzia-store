@@ -47,10 +47,8 @@ export default function LoginButton(){
                 <li className="nav-item dropdown">
                     <StyledLink onClick={toggleDropdown} aria-expanded={isOpenDropDown} className="nav-link dropdown-toggle drop_down_anchor" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown"></StyledLink>
                     <ul className="dropdown-menu border-0 shadow bsb-zoomIn" aria-labelledby="accountDropdown">
-                        <li><a className="dropdown-item" href="/login-password">Log in</a></li>
-                        <li><a className="dropdown-item" href="#">Lost Password?</a></li>
-                        <li><hr className="dropdown-divider"/></li>
-                        <li><a className="dropdown-item" href="#">Sign up</a></li>
+                        <li><a className="dropdown-item" href="/sign-in">Sign in</a></li>
+                        <li><a className="dropdown-item" href="/sign-up">Sign up</a></li>
                     </ul>
                 </li>
             </StyledUnOrderedList>
