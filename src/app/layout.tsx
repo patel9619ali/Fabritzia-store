@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from "./site/Header";
 import Footer from "./site/Footer";
+import {Dummy} from "./site/Dummy"
 import Link from "next/link";
 import {SessionProvider} from "next-auth/react"
 
@@ -31,6 +32,7 @@ export default function RootLayout({
       </Head>
         <body>
           <Header />
+          <Dummy/>
           {children}
           <Footer />
         </body>

@@ -3,6 +3,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import Logo from '@/app/components/DesktopHeader/Logo/Logo';
+import { LoaderSubmit } from '@/app/components/LoaderSubmit/LoaderSubmit';
+import {handleCrediantialsSignIn} from '../../actions/authActions';
 const FormWrapper = styled.div`
     display: flex;
     justify-content: center;
@@ -34,22 +36,28 @@ const ErrorMessage = styled.div`
   }
 `;
 export default function LoginPassword() {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = (data:any) => console.log(data,"data");
-    
+    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
+    const onSubmit = async (data:any) => {
+      try {
+        const result = await handleCrediantialsSignIn(data);
+        console.log(data,"data")
+      } catch (error) {
+        
+      }
+    }
     return (
       <FormWrapper>
          <Logo className=''/>
         <FormMainWrapper onSubmit={handleSubmit(onSubmit)} className='mt-3'>
           <input className={`common_input_holder ${errors["Email"] ? 'input_error' : ''}`} type="text" placeholder="Email" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} />
           {errors["Email"] && <ErrorMessage>Please Provide the Valid Email</ErrorMessage>}
-          <input className={`common_input_holder ${errors["Mobile number"] ? 'input_error' : ''}`} type="tel" placeholder="Mobile number" {...register("Mobile number", {required: true, minLength: 6, maxLength: 12})} />
+          <input className={`common_input_holder ${errors["Mobile number"] ? 'input_error' : ''}`} type="tel" placeholder="Mobile number" {...register("mobileNumber", {required: true, minLength: 6, maxLength: 12})} />
           {errors["Mobile number"] && <ErrorMessage>Please write Valid Phone Number</ErrorMessage>}
           <input className={`common_input_holder ${errors["Password"] ? 'input_error' : ''}`} type="password" placeholder="Password" {...register("Password", {required: true, max: 15, min: 8, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/,
           })}
         />
         {errors["Password"] && <ErrorMessage>Password should contain <ul><li>Number</li><li>Capital letter</li><li>Small letter</li><li>Special characters</li><li>Should be between 8 to 15 Characters long</li></ul></ErrorMessage>}
-        <input type="submit" />
+        <LoaderSubmit pending={isSubmitting}/>
         </FormMainWrapper>
       </FormWrapper>
     );

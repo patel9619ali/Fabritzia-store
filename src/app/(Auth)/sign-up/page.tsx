@@ -8,7 +8,7 @@ type FormData = {
   "First name": string;
   "Last name": string;
   "Email": string;
-  "Mobile number": string;
+  "Mobile number": number;
   "Password": string;
   "Confirm Password": string;
 };
