@@ -6,7 +6,7 @@ export function LoaderSubmit({pending}:Parse){
     return(
         <>
         {pending ? (<p>Pending Loading</p>):
-          (<input type="submit" />)
+          (<input type="submit" className="mb-3"/>)
         }
         </>
     )

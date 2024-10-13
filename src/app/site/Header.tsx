@@ -3,7 +3,6 @@ import DesktopHeader from '../components/DesktopHeader/DesktopHeader'
 import MobileHeader from '../components/MobileHeader/MobileHeader'
 import styled from 'styled-components';
 import React, { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
 
 const StyledHeader = styled.div`
 border-bottom: .1rem solid rgba(18, 18, 18,.08);
@@ -14,7 +13,6 @@ border-bottom: .1rem solid rgba(18, 18, 18,.08);
 `;
 const Header = () => {
    const [show, setShow] = useState(false);
-   const {data: session} = useSession();
    const [searchValue, setSearchValue] = useState("");
    return (
       <header className='pt-md-3 p-0'>

@@ -17,7 +17,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     phoneNumber: "8655286927",
                     password: "Ali9619@",
                 };
-
+                console.log(users);
                 if (!users) {
                     console.log('Invalid Credentials');
                     return null;
@@ -28,14 +28,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         })
     ],
     callbacks: {
-        async jwt({ token, user }) {
+        jwt({ token, user }) {
           if (user) {
-            token.user = user;
+            token.id = user.id as string;
           }
           return token;
         },
-        async session({ session, token }:any) {
-          session.user = token.user;
+        session({ session, token }) {
+          session.user.id = token.id;
           return session;
         },
       },

@@ -1,0 +1,43 @@
+.button_wrapper {
+    background-color: transparent;
+    color: #000000b0;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    background: url('/Assets/login-svg.svg') no-repeat center!important;
+    width: 50px !important;
+    height: 50px !important;
+    cursor: pointer;
+    top: 0;
+    position: absolute;
+    cursor: pointer;
+}
+.button_wrapper_out {
+    background: url('/Assets/logout-svg.svg') no-repeat center!important;
+}
+  @media (max-width:768px){
+    .button_wrapper {
+        width: 25px !important;
+        height: 25px !important;
+        right: -5px;
+    }
+  }
+  @media (max-width:425px){
+    .button_wrapper {
+        width: 25px !important;
+        height: 25px !important;
+        right: -10px;
+    }
+  }
+  .button_wrapper:hover,.button_wrapper:focus {
+    color: #000000b0;
+  }
+  .sign_in_out_wrapper{
+    position: fixed;
+    top: 17px;
+    right: 7%;
+    margin-left: 5px;
+  }

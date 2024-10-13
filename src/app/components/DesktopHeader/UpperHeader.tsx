@@ -2,7 +2,6 @@ import Logo from '../DesktopHeader/Logo/Logo'
 import SearchBox from '../DesktopHeader/SearchBox/SearchBox'
 import AddToCart from '../DesktopHeader/AddToCart/AddToCart'
 import styled from 'styled-components';
-import { useState } from 'react';
 const SearchBoxWrapper = styled.div`
     text-align: center!important;
 `;

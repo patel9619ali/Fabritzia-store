@@ -1,8 +1,6 @@
-import {SearchIcon} from "../SearchBox/searchIcon"
 import WishList from "../AddToCart/WishList";
 import CartSVG from "../AddToCart/CartSVG";
 import LoginButton from "../AddToCart/LoginButton";
-import { useState } from 'react';
 import OpenSearchModalForMobile from '../../../components/MobileHeader/OpenSearchModalForMobile'
 
 type Props = {
@@ -20,7 +18,6 @@ export default function AddToCart({className,show,setShow,searchValue,setSearchV
               <OpenSearchModalForMobile show={show} setShow={setShow} className={className} searchValue={searchValue} setSearchValue={setSearchValue}/>
               <WishList className="me-2"/>
               <CartSVG className="me-2"/>
-              <LoginButton/>
             </div>  
          </div>
         </>

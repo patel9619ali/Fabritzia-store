@@ -2,7 +2,6 @@ import Link from "next/link";
 import useDropdown from "../../../hooks/useDropdown";
 import styled from "styled-components";
 import { useSession } from "next-auth/react";
-import SignInOutLink from "../../../components/SignInOutLink/SignInOutLink";
 
 const StyledNav = styled.nav`
   background-color: #fff !important;
@@ -67,12 +66,11 @@ export default function LoginButton() {
               className="dropdown-menu border-0 shadow bsb-zoomIn"
               aria-labelledby="accountDropdown"
             >
-              {/* Loading state while session is being fetched */}
-              {status === "loading" ? (
+              {/* {status === "loading" ? (
                 <li className="dropdown-item">Loading...</li>
               ) : (
                 <SignInOutLink session={session} />
-              )}
+              )} */}
               <li>
                 <a className="dropdown-item" href="/sign-up">Sign up</a>
               </li>
