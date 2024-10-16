@@ -7,7 +7,7 @@ export async function GET() {
     const sql = "SELECT * FROM user_registration_login";
     
     // Correct way to fetch the data from the query
-    const [rows] = await db.query(sql); // `rows` contains the query result
+    const [rows] = await db.query(sql); 
 
     // Return the data in JSON format
     return NextResponse.json(rows); 
